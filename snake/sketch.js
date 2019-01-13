@@ -8,8 +8,10 @@ function setup() {
   createCanvas(w*resolution, h*resolution);
   frameRate(10);
   snake = new Snake();
-  apple = get_new_apple()
+  apple = get_new_apple();
+  score = 0;
 }
+
 function get_new_apple(){
   apple_location = get_random_location(w, h);
   return new Apple(apple_location[0], apple_location[1]);
@@ -62,10 +64,15 @@ function draw() {
 	background(0);
 	if (snake.eat(apple)){
 		apple = get_new_apple()
+		score += 10
+		print(score)
 	};
 	snake.update();
 	snake.show();
 	apple.show();
+	fill(255);
+	textSize(1);
+	text('Score: ' + score, w - 6, 3)
 
 	if (snake.collision()){
 		print("END GAME")
