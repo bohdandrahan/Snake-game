@@ -24,7 +24,6 @@ function get_random_location(w, h) {
 function keyPressed() {
 	switch (keyCode){
 		case LEFT_ARROW:
-			console.log(snake.getDirStr())
 			if (snake.getDirStr() === 'right'){
 				break;
 			}
