@@ -54,7 +54,6 @@ function keyPressed() {
 				snake.setDir(0, -1)
 				break;
 			}
-
 	}
 }
 
