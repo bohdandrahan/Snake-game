@@ -75,7 +75,8 @@ function draw() {
 	text('Score: ' + score, w - 6, 3)
 
 	if (snake.collision()){
-		print("END GAME")
+		textSize(3)
+		text('Game Over', 7, 11)
 		noLoop()
 	}
 }
