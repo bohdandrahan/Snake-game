@@ -59,6 +59,9 @@ function keyPressed() {
 			snake.setDir(0, -1)
 			break;
 			// }
+		default:
+			console.log('pressed', keyCode)
+			break;
 	}
 }
 
