@@ -24,6 +24,7 @@ function get_random_location(w, h) {
 function keyPressed() {
 	switch (keyCode){
 		case LEFT_ARROW:
+			console.log(keyCode)
 			// if (snake.getDirStr() === 'right'){
 			// 	break;
 			// }
@@ -33,6 +34,7 @@ function keyPressed() {
 			// }
 
 		case RIGHT_ARROW:
+			console.log(keyCode)
 			// if (snake.getDirStr() === 'left'){
 			// 	break;
 			// } else {
@@ -41,6 +43,8 @@ function keyPressed() {
 			// }
 
 		case DOWN_ARROW:
+			console.log(keyCode)
+
 			// if (snake.getDirStr() === 'up'){
 			// 	break;
 			// } else {
@@ -48,6 +52,7 @@ function keyPressed() {
 			break;
 			// }
 		case UP_ARROW:
+			console.log(keyCode)
 			// if (snake.getDirStr() === 'down'){
 			// 	break;
 			// } else {
