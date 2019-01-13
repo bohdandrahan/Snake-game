@@ -6,7 +6,7 @@ function setup() {
   w = floor(640/resolution);
   h = floor(480/resolution);
   createCanvas(w*resolution, h*resolution);
-  frameRate(2);
+  frameRate(10);
   snake = new Snake();
   apple = get_new_apple();
   score = 0;
