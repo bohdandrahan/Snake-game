@@ -22,17 +22,37 @@ function get_random_location(w, h) {
 function keyPressed() {
 	switch (keyCode){
 		case LEFT_ARROW:
-			snake.setDir(-1, 0);
-			break;
+			if (snake.getDirStr() === 'right'){
+				break;
+			}
+			else{
+				snake.setDir(-1, 0);
+				break;
+			}
+
 		case RIGHT_ARROW:
-			snake.setDir(1, 0);
-			break;
+			if (snake.getDirStr() === 'left'){
+				break;
+			} else {
+				snake.setDir(1, 0);
+				break;
+			}
+
 		case DOWN_ARROW:
-			snake.setDir(0, 1)
-			break;
+			if (snake.getDirStr() === 'up'){
+				break;
+			} else {
+				snake.setDir(0, 1)
+				break;
+			}
 		case UP_ARROW:
-			snake.setDir(0, -1)
-			break;
+			if (snake.getDirStr() === 'down'){
+				break;
+			} else {
+				snake.setDir(0, -1)
+				break;
+			}
+
 	}
 }
 
@@ -46,4 +66,9 @@ function draw() {
 	snake.update();
 	snake.show();
 	apple.show();
+
+	if (snake.collision()){
+		print("END GAME")
+		noLoop()
+	}
 }

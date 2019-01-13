@@ -12,12 +12,28 @@ class Snake {
 		this.ydir = y;
 	}
 
-	get_head() {
+	getDirStr() {
+		if (this.xdir === 0){
+			if(this.ydir === 1){
+				return 'down'
+			} else {
+				return 'up'
+			}
+		} else {
+			if(this.xdir === 1) {
+				return 'right'
+			} else {
+				return 'left'
+			}
+		}
+	}
+
+	getHead() {
 		return this.body[this.body.length-1].copy()	}
 
 	eat(apple) {
-		let x = this.get_head().x;
-		let y = this.get_head().y;
+		let x = this.getHead().x;
+		let y = this.getHead().y;
 		if (x === apple.x && y === apple.y){
 			this.grow();
 			return true;}
@@ -25,18 +41,36 @@ class Snake {
 	}
 
 	grow() {
-		let head = this.get_head()
-		this.body.push(head)
+		let head = this.getHead();
+		this.body.push(head);
 	}
 	
-	collision() {
-		let x = this.get_head().x
-		let y = this.get_head().y
-
+	collisionSnake() {
+		let head = this.getHead();
+		for (let i = 0; i < this.body.length-1; i++) {
+			let part = this.body[i]
+			if (part.x === head.x && part.y === head.y){
+				return true;
+			}
+		}
+		return false;
 	}
 
+	collisionWall() {
+		let x = this.getHead().x
+		let y = this.getHead().y
+
+		if (x > w-1 || x < 0 || y > h-1 || y < 0) {
+			return true;
+		}
+		return false;
+	}
+
+	collision() {
+		return (this.collisionWall() || this.collisionSnake());
+	}
 	update() {
-		let head = this.get_head();
+		let head = this.getHead();
 		this.body.shift();
 		head.x += this.xdir;
 		head.y += this.ydir;
